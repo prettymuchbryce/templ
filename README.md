@@ -22,7 +22,7 @@ Behind the scenes, templ makes a copy of that folder and lets you go about your 
 	templ create directory keyword 	- Creates and saves a new project template
 	templ init keyword 				- Initializes one of your saved project templates
 	templ update directory keyword 	- Updates an existing saved project template
-	templ delete keyword 				- Deletes a saved project template
+	templ delete keyword 			- Deletes a saved project template
 	templ help 						- Help menu. 
 
 Additionally, you can find all of your saved project templates in /usr/local/templ if you want to edit them manually.
