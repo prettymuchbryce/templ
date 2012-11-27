@@ -150,7 +150,7 @@ def update(args)
 		if ensureDirectoryExists(dirName)
 			deleteTemplate(templateName)
 			cp_r(dirName, TEMPLATE_FOLDER)
-			mv(TEMPLATE_FOLDER+"/"+dirName, Pathname.new($0).dirname.to_s+"/"+TEMPLATE_FOLDER+"/"+templateName)
+			mv(TEMPLATE_FOLDER+"/"+dirName, TEMPLATE_FOLDER+"/"+templateName)
 			puts templateName + " updated."
 		else
 			return
