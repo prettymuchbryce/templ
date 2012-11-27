@@ -12,11 +12,12 @@ _Templ is the easiest way to create and store language-agnostic templates on you
 
 ## Using it is easy too. There are only five commands.
 
-	templ - Lists all of your saved templates
-	templ create directory name - Creates a new template
-	templ delete name - Deletes a template
-	templ init name - Initializes one of your saved templates.
-	templ help - Help menu. 
+	templ 							- Lists all of your saved templates
+	templ create directory name 	- Creates and saves a new template
+	templ init name 				- Initializes one of your saved templates.
+	templ update directory name 	- Updates an existing saved template
+	templ delete name 				- Deletes a saved template
+	templ help 						- Help menu. 
 
 ## Getting help
 
