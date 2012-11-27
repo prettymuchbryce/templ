@@ -19,6 +19,15 @@ _Templ is the easiest way to create and store language-agnostic templates on you
 	templ delete name 				- Deletes a saved template
 	templ help 						- Help menu. 
 
+Additionally, you can find all of your saved templates in /usr/local/templ
+
+## Removing templ
+
+In order to remove templ, you just need to delete two files.
+
+	rm -rf /usr/local/templ
+	rm /usr/local/bin/templ
+
 ## Getting help
 
 Just open an issue, or send me an email brycedneal@gmail.com
