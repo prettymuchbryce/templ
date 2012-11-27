@@ -1,5 +1,6 @@
 require 'net/http'
 require 'fileutils'
+include FileUtils
 
 cd("/usr/bin/local")
 
