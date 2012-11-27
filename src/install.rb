@@ -1,4 +1,4 @@
-require 'net/http'
+require 'open-uri'
 require 'fileutils'
 include FileUtils
 
@@ -6,11 +6,13 @@ cd("/usr/local/bin")
 
 puts "Installing templ.."
 
-Net::HTTP.start("raw.github.com") do |http|
-    resp = http.get("/prettymuchbryce/templ/master/bin/templ")
-    open("templ", "wb") do |file|
-        file.write(resp.body)
-    end
+File.open("/usr/local/bin/templ", "wb") do |saved_file|
+  # the following "open" is provided by open-uri
+  open("https://raw.github.com/prettymuchbryce/templ/master/src/templ.rb", 'rb') do |read_file|
+    saved_file.write(read_file.read)
+  end
 end
 
-puts "Installation complete. Restart your terminal, and type templ help to get started."
+chmod("+x", "templ")
+
+puts "Installation complete. Type templ help to get started."

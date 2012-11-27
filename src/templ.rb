@@ -118,7 +118,7 @@ def create(args)
 
 	if ensureDirectoryExists(dirName)
 		cp_r(dirName, TEMPLATE_FOLDER)
-		mv(TEMPLATE_FOLDER+"/"+dirName, Pathname.new($0).dirname.to_s+"/"+TEMPLATE_FOLDER+"/"+templateName)
+		mv(TEMPLATE_FOLDER+"/"+dirName, TEMPLATE_FOLDER+"/"+templateName)
 	else
 		return
 	end
