@@ -10,7 +10,7 @@ _Templ is the easiest way to create and store language-agnostic templates on you
 
 	ruby -e "$(curl -fsSkL raw.github.com/prettymuchbryce/templ/master/src/install.rb)"
 
-## Using it is easy too. There are only five commands.
+## Using it is easy too. There are only a handful of commands.
 
 	templ 							- Lists all of your saved templates
 	templ create directory name 	- Creates and saves a new template
@@ -22,16 +22,10 @@ _Templ is the easiest way to create and store language-agnostic templates on you
 Additionally, you can find all of your saved templates in /usr/local/templ
 
 ## Removing templ
-
-In order to remove templ, you just need to delete two files.
-
+This will remove all traces of templ. Any templates you have saved will be deleted.
 	rm -rf /usr/local/templ
 	rm /usr/local/bin/templ
 
 ## Getting help
 
 Just open an issue, or send me an email brycedneal@gmail.com
-
-
-
-ruby -e "$(curl -fsSkL http://bryce-mbp.local:8000/install.rb)"
