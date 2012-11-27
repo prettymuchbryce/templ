@@ -2,7 +2,7 @@
 
 ![Templ Icon](http://www.gettyicons.com/free-icons/101/alien-vs-predator/png/256/avp4_256.png)
 
-## What is templ
+## What is templ?
 
 Templ is a command-line tool that lets you specify any folder as a project template by assigning it a keyword. 
 

@@ -129,7 +129,7 @@ def delete(args)
 	templateName = args[1]
 	if ensureTemplateExists(templateName,true)
 		deleteTemplate(templateName)
-		puts "template " + templateName + " deleted."
+		puts "Deleted template " + templateName + "."
 	else
 		return
 	end
