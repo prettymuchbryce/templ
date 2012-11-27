@@ -119,6 +119,7 @@ def create(args)
 	if ensureDirectoryExists(dirName)
 		cp_r(dirName, TEMPLATE_FOLDER)
 		mv(TEMPLATE_FOLDER+"/"+dirName, TEMPLATE_FOLDER+"/"+templateName)
+		puts "Created template " + templateName + "."
 	else
 		return
 	end
