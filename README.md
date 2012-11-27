@@ -19,10 +19,10 @@ Behind the scenes, templ makes a copy of that folder and lets you go about your 
 ## Using it is easy too. There are only a handful of commands.
 
 	templ 							- Lists all of your saved project templates
-	templ create directory name 	- Creates and saves a new project template
-	templ init name 				- Initializes one of your saved project templates
-	templ update directory name 	- Updates an existing saved project template
-	templ delete name 				- Deletes a saved project template
+	templ create directory keyword 	- Creates and saves a new project template
+	templ init keyword 				- Initializes one of your saved project templates
+	templ update directory keyword 	- Updates an existing saved project template
+	templ delete keyword 				- Deletes a saved project template
 	templ help 						- Help menu. 
 
 Additionally, you can find all of your saved project templates in /usr/local/templ if you want to edit them manually.

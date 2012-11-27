@@ -87,7 +87,7 @@ def init(args)
 	templateName = args[1]
 	
 	if !templateName
-		puts "\033[31mMissing template name.\n\033[0mTry: templ init \033[34mname"
+		puts "\033[31mMissing template name.\n\033[0mTry: templ init \033[34mkeyword"
 		return
 	end
 
@@ -105,14 +105,14 @@ def create(args)
 
 	#validate
 	if !dirName
-		puts "\033[31mMissing directory name.\n\033[0mTry: templ create \033[33mdirectory \033[34mname"
+		puts "\033[31mMissing directory name.\n\033[0mTry: templ create \033[33mdirectory \033[34mkeyword"
 		return
 	elsif !templateName
-		puts "\033[31mMissing template name.\n\033[0mTry: templ create \033[33mdirectory \033[34mname"
+		puts "\033[31mMissing template keyword.\n\033[0mTry: templ create \033[33mdirectory \033[34mkeyword"
 	end
 
 	if ensureTemplateExists(templateName,false)
-		puts "\033[31mTemplate " + templateName + " already exists.\n\033[0mTry: templ update \033[33mdirectory \033[34mtemplateName"
+		puts "\033[31mTemplate " + templateName + " already exists.\n\033[0mTry: templ update \033[33mdirectory \033[34mkeyword"
 		return
 	end
 
@@ -140,10 +140,10 @@ def update(args)
 
 	#validate
 	if !dirName
-		puts "\033[31mMissing directory name.\n\033[0mTry: templ update \033[33mdirectory \033[34mname"
+		puts "\033[31mMissing directory name.\n\033[0mTry: templ update \033[33mdirectory \033[34mkeyword"
 		return
 	elsif !templateName
-		puts "\033[31mMissing template name.\n\033[0mTry: templ update \033[33mdirectory \033[34mname"
+		puts "\033[31mMissing template keyword.\n\033[0mTry: templ update \033[33mdirectory \033[34mkeyword"
 	end
 
 	if ensureTemplateExists(templateName,true)
@@ -162,10 +162,10 @@ end
 
 def help
 	puts "templ \t\t\t\t\t- Lists all of your saved templates\n"
-	puts "templ create \033[33mdirectory \033[34mname \033[0m\t\t- Creates and saves a new template\n"
-	puts "templ init \033[34mname \033[0m\t\t\t- Initializes one of your saved templates\n"
-	puts "templ delete \033[34mname \033[0m\t\t\t- Deletes a saved template\n"
-	puts "templ update \033[33mdirectory \033[34mname \033[0m\t\t- Updates an existing saved template\n"
+	puts "templ create \033[33mdirectory \033[34mkeyword \033[0m\t\t- Creates and saves a new template\n"
+	puts "templ init \033[34mkeyword \033[0m\t\t\t- Initializes one of your saved templates\n"
+	puts "templ delete \033[34mkeyword \033[0m\t\t\t- Deletes a saved template\n"
+	puts "templ update \033[33mdirectory \033[34mkeyword \033[0m\t\t- Updates an existing saved template\n"
 end
 
 args = []
