@@ -2,7 +2,7 @@ require 'net/http'
 require 'fileutils'
 include FileUtils
 
-cd("/usr/bin/local")
+cd("/usr/local/bin")
 
 puts "Installing templ.."
 
