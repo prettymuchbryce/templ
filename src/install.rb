@@ -1,4 +1,5 @@
 require 'net/http'
+require 'fileutils'
 
 cd("/usr/bin/local")
 
