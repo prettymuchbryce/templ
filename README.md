@@ -14,7 +14,7 @@ _Templ is the easiest way to create and store language-agnostic templates on you
 
 	templ 							- Lists all of your saved templates
 	templ create directory name 	- Creates and saves a new template
-	templ init name 				- Initializes one of your saved templates.
+	templ init name 				- Initializes one of your saved templates
 	templ update directory name 	- Updates an existing saved template
 	templ delete name 				- Deletes a saved template
 	templ help 						- Help menu. 

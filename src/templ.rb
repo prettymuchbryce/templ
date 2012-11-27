@@ -161,11 +161,11 @@ def update(args)
 end
 
 def help
-	puts "templ \t\t\t\t\t- Lists all templates.\n"
-	puts "templ create \033[33mdirectory \033[34mname \033[0m\t\t- Creates a new template.\n"
-	puts "templ init \033[34mname \033[0m\t\t\t- Init an existing template.\n"
-	puts "templ delete \033[34mname \033[0m\t\t\t- Deletes an existing template.\n"
-	puts "templ update \033[33mdirectory \033[34mname \033[0m\t\t- Replaces an existing template.\n"
+	puts "templ \t\t\t\t\t- Lists all of your saved templates\n"
+	puts "templ create \033[33mdirectory \033[34mname \033[0m\t\t- Creates and saves a new template\n"
+	puts "templ init \033[34mname \033[0m\t\t\t- Initializes one of your saved templates\n"
+	puts "templ delete \033[34mname \033[0m\t\t\t- Deletes a saved template\n"
+	puts "templ update \033[33mdirectory \033[34mname \033[0m\t\t- Updates an existing saved template\n"
 end
 
 args = []
