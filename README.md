@@ -2,7 +2,7 @@
 
 Templ is a command-line tool that lets you specify any folder as a project template by assigning it a keyword. 
 
-	templ create myfolder mykeyword
+	templ create /some/path/to/a/folder mykeyword
 
 Behind the scenes, templ makes a copy of that folder and lets you go about your business. If you decide later on that you want to "paste" that directory, you can do so using the keyword you provided.
 
