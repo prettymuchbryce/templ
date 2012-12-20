@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-#Templ 1.0 by Bryce Neal @prettymuchbryce
+#Templ 1.1
 require 'fileutils'
 require 'pathname'
 include FileUtils
@@ -14,65 +14,65 @@ def error text
 	puts "\033[31m" + text
 end
 
-def ensureDirectoryExists(dirName)
-	foundDir = false
+def does_directory_exist?(dir_name)
+	found_dir = false
 
-	templatesDirectory = Dir.entries(pwd())
-	templatesDirectory.each do |dir|
+	templates_directory = Dir.entries(pwd())
+	templates_directory.each do |dir|
 		if File.directory?(dir)
-			if dir == dirName
-				foundDir = true
+			if dir == dir_name
+				found_dir = true
 			end
 		end
 	end
 
-	if foundDir == false
-		error "Directory " + dirName + " does not exist."
+	if !found_dir
+		error "Directory " + dir_name + " does not exist."
 	end
 
-	return foundDir
+	return found_dir
 end
 
-def getTemplates()
-	templatesDirectory = Dir.entries(TEMPLATE_FOLDER)
+def get_templates()
+	templates_directory = Dir.entries(TEMPLATE_FOLDER)
 	templates = []
-	templatesDirectory.each do |folderName|
-		if folderName[0] != "."
-			templates.push(folderName)
+	templates_directory.each do |folder_name|
+		if folder_name[0] != "."
+			templates.push(folder_name)
 		end
 	end
 
 	return templates
 end
 
-def deleteTemplate(templ)
+def delete_template(templ)
 	rm_r(TEMPLATE_FOLDER+"/"+templ)
 end
 
-def ensureTemplateExists(templ,doError)
-	templates = getTemplates()
-	foundTemplate = false
+def does_template_exist?(templ,do_error)
+	templates = get_templates()
+	found_template = false
 	templates.each do |template|
 		if template == templ
-			foundTemplate = true
+			found_template = true
 		end
 	end
 
-	if foundTemplate == false
-		if doError
+	if found_template == false
+		if do_error
 			error "Template " + templ + " does not exist."
 		end
 	end
 
-	return foundTemplate
+	return found_template
 end
 
-def getFullPathToTemplate(templ)
+def get_full_path_to_template(templ)
 	return TEMPLATE_FOLDER+"/"+templ
 end
 
 def list
-	templates = getTemplates()
+	templates = get_templates()
 
 	if templates.length == 0
 		puts "You have no saved templates."
@@ -84,75 +84,75 @@ def list
 end
 
 def init(args)
-	templateName = args[1]
+	template_name = args[1]
 	
-	if !templateName
+	if !template_name
 		puts "\033[31mMissing template name.\n\033[0mTry: templ init \033[34mkeyword"
 		return
 	end
 
-	if ensureTemplateExists(templateName,true)
-		cp_r(getFullPathToTemplate(templateName),pwd())
-		puts "Created template " + templateName + "."
+	if does_template_exist?(template_name,true)
+		cp_r(get_full_path_to_template(template_name),pwd())
+		puts "Created template " + template_name + "."
 	else
 		return
 	end
 end
 
 def create(args)
-	dirName = args[1]
-	templateName = args[2]
+	dir_name = args[1]
+	template_name = args[2]
 
 	#validate
-	if !dirName
+	if !dir_name
 		puts "\033[31mMissing directory name.\n\033[0mTry: templ create \033[33mdirectory \033[34mkeyword"
 		return
-	elsif !templateName
+	elsif !template_name
 		puts "\033[31mMissing template keyword.\n\033[0mTry: templ create \033[33mdirectory \033[34mkeyword"
 	end
 
-	if ensureTemplateExists(templateName,false)
-		puts "\033[31mTemplate " + templateName + " already exists.\n\033[0mTry: templ update \033[33mdirectory \033[34mkeyword"
+	if does_template_exist?(template_name,false)
+		puts "\033[31mTemplate " + template_name + " already exists.\n\033[0mTry: templ update \033[33mdirectory \033[34mkeyword"
 		return
 	end
 
-	if ensureDirectoryExists(dirName)
-		cp_r(dirName, TEMPLATE_FOLDER)
-		mv(TEMPLATE_FOLDER+"/"+dirName, TEMPLATE_FOLDER+"/"+templateName)
-		puts "Created template " + templateName + "."
+	if does_directory_exist?(dir_name)
+		cp_r(dir_name, TEMPLATE_FOLDER)
+		mv(TEMPLATE_FOLDER+"/"+dir_name, TEMPLATE_FOLDER+"/"+template_name)
+		puts "Created template " + template_name + "."
 	else
 		return
 	end
 end
 
 def delete(args)
-	templateName = args[1]
-	if ensureTemplateExists(templateName,true)
-		deleteTemplate(templateName)
-		puts "Deleted template " + templateName + "."
+	template_name = args[1]
+	if does_template_exist?(template_name,true)
+		delete_template(template_name)
+		puts "Deleted template " + template_name + "."
 	else
 		return
 	end
 end
 
 def update(args)
-	dirName = args[1]
-	templateName = args[2]
+	dir_name = args[1]
+	template_name = args[2]
 
 	#validate
-	if !dirName
+	if !dir_name
 		puts "\033[31mMissing directory name.\n\033[0mTry: templ update \033[33mdirectory \033[34mkeyword"
 		return
-	elsif !templateName
+	elsif !template_name
 		puts "\033[31mMissing template keyword.\n\033[0mTry: templ update \033[33mdirectory \033[34mkeyword"
 	end
 
-	if ensureTemplateExists(templateName,true)
-		if ensureDirectoryExists(dirName)
-			deleteTemplate(templateName)
-			cp_r(dirName, TEMPLATE_FOLDER)
-			mv(TEMPLATE_FOLDER+"/"+dirName, TEMPLATE_FOLDER+"/"+templateName)
-			puts templateName + " updated."
+	if does_template_exist?(template_name,true)
+		if does_directory_exist?(dir_name)
+			delete_template(template_name)
+			cp_r(dir_name, TEMPLATE_FOLDER)
+			mv(TEMPLATE_FOLDER+"/"+dir_name, TEMPLATE_FOLDER+"/"+template_name)
+			puts template_name + " updated."
 		else
 			return
 		end
